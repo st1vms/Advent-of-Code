@@ -22,4 +22,4 @@ for a, b in zip(first_list, second_list):
     distances.append(abs(b-a))
 
 # Prints solution
-print(sum(distances))
+print(f"Total distance is: {sum(distances)}")

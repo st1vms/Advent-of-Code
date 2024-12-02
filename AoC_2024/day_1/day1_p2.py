@@ -19,4 +19,4 @@ for a in first_list:
     scores.append(a * c)
 
 # Prints solution
-print(sum(scores))
+print(f"Total score is: {sum(scores)}")
