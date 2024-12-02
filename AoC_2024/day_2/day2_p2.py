@@ -59,16 +59,16 @@ def is_report_safe(report: list[int]) -> bool:
     """Return True if report is safe"""
 
     # Get bad indexes from report
-    bad_level_increasing = is_increasing(report)
+    bad_levels_increasing = is_increasing(report)
     bad_levels_decreasing = is_decreasing(report)
 
     # Check if report is already safe
-    if len(bad_level_increasing) == 0 or len(bad_levels_decreasing) == 0:
+    if len(bad_levels_increasing) == 0 or len(bad_levels_decreasing) == 0:
         return True
 
     # Applies "Problem Dampener" logic
 
-    for bad_level in bad_level_increasing:
+    for bad_level in bad_levels_increasing:
         new_report = report.copy()
         new_report.pop(bad_level)
         if len(is_increasing(new_report)) == 0:
