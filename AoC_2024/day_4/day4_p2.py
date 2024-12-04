@@ -26,8 +26,8 @@ def get_diagonals_neighbours_cells(
 
     for dx, dy in directions:
         sub_neighbors = []
-        for step in range(1, n_cells + 1):
-            new_x, new_y = x_start + dx * step, y_start + dy * step
+        for distance in range(1, n_cells + 1):
+            new_x, new_y = x_start + dx * distance, y_start + dy * distance
 
             # Boundary check
             if 0 <= new_x < rows and 0 <= new_y < cols:
@@ -50,7 +50,7 @@ def count_x_word(input_matrix: list[list[str]], three_character_string: str) -> 
                 continue
 
             diagonals_neigh = get_diagonals_neighbours_cells(input_matrix, x, y, 1)
-            if len(diagonals_neigh) < 4:
+            if not all(diagonals_neigh):
                 continue
 
             top_left, top_right, btm_left, btm_right = diagonals_neigh

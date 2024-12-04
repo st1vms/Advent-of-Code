@@ -30,8 +30,8 @@ def get_neighbor_cells(
 
     for dx, dy in directions:
         sub_neighbors = []
-        for step in range(1, n_cells + 1):
-            new_x, new_y = x_start + dx * step, y_start + dy * step
+        for distance in range(1, n_cells + 1):
+            new_x, new_y = x_start + dx * distance, y_start + dy * distance
 
             # Boundary check
             if 0 <= new_x < rows and 0 <= new_y < cols:
