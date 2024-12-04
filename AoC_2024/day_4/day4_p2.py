@@ -12,7 +12,7 @@ with open(INPUT_FILE, "r", encoding="utf-8") as fp:
 def get_diagonals_neighbours_cells(
     matrix: list[list], x_start: int, y_start: int, n_cells: int
 ) -> list[list[str]]:
-    """Returns a list of lists of at most `n_cells` neighbours
+    """Returns a list of 4 lists of at most `n_cells` diagonal neighbours
     starting at position `x_start` and `y_start` in the `matrix`"""
 
     directions = [
@@ -39,14 +39,18 @@ def get_diagonals_neighbours_cells(
     return neighbors
 
 
-def count_x_word(input_matrix: list[list[str]], three_character_string: str) -> int:
-    """Find total number of times a word is present in the input matrix"""
+def count_x_word(input_matrix: list[list[str]], target_string: str) -> int:
+    """Find total number of times a word is present in the input matrix as X combination"""
+
+    if len(target_string) % 2 == 0:
+        raise ValueError("The length of the input string must be odd!")
+
     total = 0
     for x, row in enumerate(input_matrix):
         for y, ch in enumerate(row):
 
             # Only count positions that have middle letter
-            if ch != three_character_string[1]:
+            if ch != target_string[len(target_string)//2]:
                 continue
 
             diagonals_neigh = get_diagonals_neighbours_cells(input_matrix, x, y, 1)
@@ -56,19 +60,19 @@ def count_x_word(input_matrix: list[list[str]], three_character_string: str) -> 
             top_left, top_right, btm_left, btm_right = diagonals_neigh
 
             # Diagonal check one
-            if three_character_string == "".join(top_left) + ch + "".join(btm_right):
-                if three_character_string == "".join(btm_left) + ch + "".join(
+            if target_string == "".join(top_left) + ch + "".join(btm_right):
+                if target_string == "".join(btm_left) + ch + "".join(
                     top_right
-                ) or three_character_string == "".join(top_right) + ch + "".join(
+                ) or target_string == "".join(top_right) + ch + "".join(
                     btm_left
                 ):
                     total += 1
 
             # Diagonal check two
-            if three_character_string == "".join(btm_right) + ch + "".join(top_left):
-                if three_character_string == "".join(btm_left) + ch + "".join(
+            if target_string == "".join(btm_right) + ch + "".join(top_left):
+                if target_string == "".join(btm_left) + ch + "".join(
                     top_right
-                ) or three_character_string == "".join(top_right) + ch + "".join(
+                ) or target_string == "".join(top_right) + ch + "".join(
                     btm_left
                 ):
                     total += 1

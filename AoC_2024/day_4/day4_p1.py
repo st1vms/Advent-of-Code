@@ -12,7 +12,7 @@ with open(INPUT_FILE, "r", encoding="utf-8") as fp:
 def get_neighbor_cells(
     matrix: list[list], x_start: int, y_start: int, n_cells: int
 ) -> list[list[str]]:
-    """Returns a list of lists of at most `n_cells` neighbours
+    """Returns a list of 8 lists of at most `n_cells` neighbours
     starting at position `x_start` and `y_start` in the `matrix`"""
 
     directions = [
