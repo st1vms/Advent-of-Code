@@ -19,6 +19,6 @@ Solution file: [Part 2 solution](day5_p2.py)
 
 ### Explanation Part 2
 
-Here we need to use the same function for checking if an update is correct, but instead gather all the uncorrect updates and fix them using the function `fix_update` which performs the topological sort.
+Here we need to use the same function for checking if an update is correct, but instead gather all the uncorrect updates and fix them using the function `fix_update` which performs the Kahn's Algorithm topological sort.
 
 The solution is the sum of middle values in the fixed updates.
