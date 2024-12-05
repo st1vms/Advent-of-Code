@@ -10,3 +10,4 @@ The language I will be using to solve the challenges is Python 3.11
 - [Day 2: Red-Nosed Reports](AoC_2024/day_2/README.md)
 - [Day 3: Mull It Over](AoC_2024/day_3/README.md)
 - [Day 4: Ceres Search](AoC_2024/day_4/README.md)
+- [Day 5: Print Queue](AoC_2024/day_5/README.md)
