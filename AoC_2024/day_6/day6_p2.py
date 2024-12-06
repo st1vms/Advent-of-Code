@@ -125,7 +125,7 @@ def find_possible_obstacles_coords(map_matrix: list[list]) -> list[tuple[int, in
 def find_loop(
     map_matrix: list[list], start_dir: int, start_pos: tuple[int, int]
 ) -> bool:
-    """Returns true if this path makes the player move in a loop or if it takes too long to determine"""
+    """Returns true if this path makes the player move in a loop"""
 
     visited_pos = set()
     prev_x, prev_y = start_pos
