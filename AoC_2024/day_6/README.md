@@ -19,6 +19,6 @@ Solution file: [Part 2 solution](day6_p2.py)
 ### Explanation Part 2
 
 In this part, we need to find how many loops we can create by adding one single obstacle in the map.
-I revisited some pieces of code from part one, but I eventually gave up in trying to figure out a
-solution to detect an infinite loop. So i basically decided to give the function a timeout in order to detect infinite loops.
-The code is really slow in finding the solution, don't try this at home! :P
+I revisited some pieces of code from part one, then i created a function to check if the player will reach
+an infinite loop, it will be used to check if any obstacle placement produces a loop.
+The solution will be the total amount of loops possible.

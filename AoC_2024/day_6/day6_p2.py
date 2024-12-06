@@ -127,13 +127,9 @@ def find_loop(
 ) -> bool:
     """Returns true if this path makes the player move in a loop or if it takes too long to determine"""
 
-    start_time = time.time()
+    visited_pos = set()
     prev_x, prev_y = start_pos
     while True:
-
-        # Worst solution ever to check if this is infinite loop
-        if time.time() - start_time > 0.1:
-            return True
 
         # Get next position based off direction
         new_x, new_y = get_walk_position(prev_x, prev_y, start_dir)
@@ -154,6 +150,12 @@ def find_loop(
 
         # Set the current position as the next path coordinates
         prev_x, prev_y = new_x, new_y
+
+        # Loop check
+        if (prev_x, prev_y, start_dir) in visited_pos:
+            return True
+
+        visited_pos.add((prev_x, prev_y, start_dir))
 
 
 if __name__ == "__main__":
