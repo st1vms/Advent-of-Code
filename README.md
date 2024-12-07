@@ -12,3 +12,4 @@ The language I will be using to solve the challenges is Python 3.11
 - [Day 4: Ceres Search](AoC_2024/day_4/README.md)
 - [Day 5: Print Queue](AoC_2024/day_5/README.md)
 - [Day 6: Guard Gallivant](AoC_2024/day_6/README.md)
+- [Day 7: Bridge Repair](AoC_2024/day_7/README.md)
