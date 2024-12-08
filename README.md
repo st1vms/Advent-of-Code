@@ -1,8 +1,13 @@
-# AoC 2024 Writeups
+# AoC Writeups & Tools
 
 This repository aims to provide the solutions to [Advent of Code](https://adventofcode.com/) that I came up with, along with writeups.
 
 The language I will be using to solve the challenges is Python 3.11
+
+## AoC Scraper
+
+Check out this cool [aoc_scraper](aoc_scraper.py) I made to gather the puzzle text and input.
+It only requires a session cookie string to work.
 
 ## Day list (AoC 2024)
 
