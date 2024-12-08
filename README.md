@@ -1,6 +1,6 @@
 # AoC 2024 Writeups
 
-This repository aims to provide the solutions to Advent of Code that I came up with, along with writeups.
+This repository aims to provide the solutions to [Advent of Code](https://adventofcode.com/) that I came up with, along with writeups.
 
 The language I will be using to solve the challenges is Python 3.11
 
@@ -13,3 +13,4 @@ The language I will be using to solve the challenges is Python 3.11
 - [Day 5: Print Queue](AoC_2024/day_5/README.md)
 - [Day 6: Guard Gallivant](AoC_2024/day_6/README.md)
 - [Day 7: Bridge Repair](AoC_2024/day_7/README.md)
+- [Day 8: Resonant Collinearity](AoC_2024/day_8/README.md)
