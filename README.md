@@ -6,8 +6,12 @@ The language I will be using to solve the challenges is Python 3.11
 
 ## AoC Scraper
 
-Check out this cool [aoc_scraper](aoc_scraper.py) I made to gather the puzzle text and input.
+Check out this cool [aoc_scraper](Solver/aoc_scraper.py) I made to gather the puzzle text and input.
 It only requires a session cookie string to work.
+
+## AoC Solver
+
+Also check out this cool [auto solver](Solver/README.md) I made using a ChatGPT scraper.
 
 ## Day list (AoC 2024)
 
