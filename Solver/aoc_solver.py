@@ -5,14 +5,14 @@ YEAR = 2024
 
 DAY = 9
 
-PART = 1
+PART = 2
 
 # Advent of Code Cookie header value, required
-SESSION_COOKIE = "53616c7465645f5f73c0711e8c705b736a8d0b15ff45998fa8b3560e1e3a04f97d71bf122f05ebd60e61bd815d74da9cc9b8228fdef51b5907e759d36b35139e"
+SESSION_COOKIE = ""
 
 # Firefox profile path with logged ChatGPT account
 # Use None for default account
-PROFILE_PATH = r"C:\Users\stefa\AppData\Roaming\Mozilla\Firefox\Profiles\4uwr39tp.work"
+PROFILE_PATH = r""
 
 
 # Do not change this
