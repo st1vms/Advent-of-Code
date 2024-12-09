@@ -23,3 +23,4 @@ Also check out this cool [auto solver](Solver/README.md) I made using a ChatGPT 
 - [Day 6: Guard Gallivant](AoC_2024/day_6/README.md)
 - [Day 7: Bridge Repair](AoC_2024/day_7/README.md)
 - [Day 8: Resonant Collinearity](AoC_2024/day_8/README.md)
+- [Day 9: Disk Fragmenter](AoC_2024/day_9/README.md)

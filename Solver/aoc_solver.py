@@ -1,18 +1,18 @@
 from gpt_scraper import GPTScraper
 from aoc_scraper import AdventOfCodeScraper
 
-YEAR = 2015
+YEAR = 2024
 
-DAY = 3
+DAY = 9
 
-PART = 2
+PART = 1
 
 # Advent of Code Cookie header value, required
-SESSION_COOKIE = ""
+SESSION_COOKIE = "53616c7465645f5f73c0711e8c705b736a8d0b15ff45998fa8b3560e1e3a04f97d71bf122f05ebd60e61bd815d74da9cc9b8228fdef51b5907e759d36b35139e"
 
 # Firefox profile path with logged ChatGPT account
 # Use None for default account
-PROFILE_PATH = ""
+PROFILE_PATH = r"C:\Users\stefa\AppData\Roaming\Mozilla\Firefox\Profiles\4uwr39tp.work"
 
 
 # Do not change this
@@ -35,8 +35,10 @@ def _extract_code(s):
 
 
 def _get_puzzle_input(aoc_scraper: AdventOfCodeScraper) -> None:
-
-    text = aoc_scraper.get_puzzle_input(YEAR, DAY)
+    try:
+        text = aoc_scraper.get_puzzle_input(YEAR, DAY)
+    except Exception as e:
+        return
     with open("input.txt", "w", encoding="utf-8") as fp:
         fp.write(text)
 
