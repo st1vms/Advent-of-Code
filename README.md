@@ -11,7 +11,7 @@ It only requires a session cookie string to work.
 
 ## AoC Solver
 
-Also check out this cool [auto solver](Solver/README.md) I made using a ChatGPT scraper.
+Also check out this cool [auto solver](Solver/aoc_solver.py) I made using a ChatGPT scraper.
 
 ## Day list (AoC 2024)
 
@@ -24,3 +24,4 @@ Also check out this cool [auto solver](Solver/README.md) I made using a ChatGPT 
 - [Day 7: Bridge Repair](AoC_2024/day_7/README.md)
 - [Day 8: Resonant Collinearity](AoC_2024/day_8/README.md)
 - [Day 9: Disk Fragmenter](AoC_2024/day_9/README.md)
+- [Day 10: Hoof It](AoC_2024/day_10/README.md)
