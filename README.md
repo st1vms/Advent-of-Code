@@ -25,3 +25,4 @@ Also check out this cool [auto solver](Solver/aoc_solver.py) I made using a Chat
 - [Day 8: Resonant Collinearity](AoC_2024/day_8/README.md)
 - [Day 9: Disk Fragmenter](AoC_2024/day_9/README.md)
 - [Day 10: Hoof It](AoC_2024/day_10/README.md)
+- [Day 11: Plutonian Pebbles](AoC_2024/day_11/README.md)
