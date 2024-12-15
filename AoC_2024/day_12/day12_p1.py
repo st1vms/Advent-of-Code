@@ -12,9 +12,10 @@ def read_input(file_path: str) -> list[str]:
 
 
 def calculate_area_and_perimeter(
-    grid: list[str], x: int, y: int, visited: list[tuple[int]]
+    grid: list[str], x: int, y: int, visited: set[tuple[int]]
 ) -> tuple[int]:
     """Calculates the area and perimeter of a region using BFS."""
+
     plant_type = grid[x][y]
     queue = [(x, y)]
     visited.add((x, y))
@@ -29,9 +30,15 @@ def calculate_area_and_perimeter(
         area += 1
 
         for dx, dy in directions:
+
+            # Find neighbours
             nx, ny = cx + dx, cy + dy
 
+            # Check if in bounds of grid
             if 0 <= nx < len(grid) and 0 <= ny < len(grid[0]):
+
+                # Check if neighbour is the same plant type,
+                # and it's not visisted
                 if grid[nx][ny] == plant_type and (nx, ny) not in visited:
                     visited.add((nx, ny))
                     queue.append((nx, ny))
@@ -50,8 +57,8 @@ def calculate_total_price(grid: list[str]) -> int:
 
     for x, y in product(range(len(grid)), range(len(grid[0]))):
         if (x, y) not in visited:
-            area, sides = calculate_area_and_perimeter(grid, x, y, visited)
-            total_price += area * sides
+            area, perimeter = calculate_area_and_perimeter(grid, x, y, visited)
+            total_price += area * perimeter
 
     return total_price
 
