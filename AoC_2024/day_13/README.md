@@ -15,3 +15,5 @@ Using this method we can easily calculate the minimum amount of tokens needed to
 Solution file: [Part 2 solution](day13_p2.py)
 
 ### Explanation Part 2
+
+Part two uses the same script as part one, but adds an offset of `10000000000000` to the price location X/Y coordinates.

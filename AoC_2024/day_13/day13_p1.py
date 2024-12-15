@@ -2,10 +2,11 @@
 
 import re
 from dataclasses import dataclass
-from typing import List, Tuple, Dict, Union
 from scipy.optimize import linprog
 
 INPUT_FILE = "input.txt"
+
+OFFSET = 0
 
 
 @dataclass
@@ -37,68 +38,24 @@ def read_input(input_file: str) -> list[ClawMachineData]:
             button_b = (int(button_b.group(1)), int(button_b.group(2)))
 
             # Reads price location
+            # Also add offset
             price_loc = re.search(price_pattern, prize_loc_line)
-            price_loc = (int(price_loc.group(1)), int(price_loc.group(2)))
+            price_loc = (
+                int(price_loc.group(1)) + OFFSET,
+                int(price_loc.group(2)) + OFFSET,
+            )
 
             claws_data.append(ClawMachineData(button_a, button_b, price_loc))
 
     return claws_data
 
 
-def simplex_algorithm(
-    num_variables: int,
-    objective_coeffs: List[float],
-    maximize: bool,
-    constraints: List[Tuple[List[float], str, float]],
-) -> Dict[str, Union[str, float, List[float]]]:
-    """Performs the simplex algorithm to solve a linear programming problem."""
+def simplex_algorithm(c, A, b, bounds, maximize=False):
+    """Solves a linear programming problem using the Simplex algorithm."""
 
-    # Ensure the dimensions of the problem match
-    if len(objective_coeffs) != num_variables:
-        raise ValueError(
-            "The length of the objective coefficients must match the number of variables."
-        )
+    # Solve using scipy's linprog
+    result = linprog(c, A_eq=A, b_eq=b, bounds=bounds, method="highs")
 
-    # Initialize lists for constraints matrix (A) and bounds vector (b)
-    a: List[List[float]] = []  # Coefficients for the constraints
-    b: List[float] = []  # Bounds for the constraints
-
-    # Process each constraint
-    for constraint in constraints:
-        coeffs, inequality, bound = constraint
-        if len(coeffs) != num_variables:
-            raise ValueError(
-                "Each constraint must have coefficients matching the number of variables."
-            )
-
-        if inequality == "<=":
-            a.append(coeffs)
-            b.append(bound)
-        elif inequality == ">=":
-            # Convert '>=' into '<=' by multiplying by -1
-            a.append([-c for c in coeffs])
-            b.append(-bound)
-        elif inequality == "=":
-            # For equality, split into two inequalities
-            a.append(coeffs)
-            b.append(bound)
-            a.append([-c for c in coeffs])
-            b.append(-bound)
-        else:
-            raise ValueError("Inequality must be either '<=', '>=', or '='.")
-
-    # If maximizing, negate the objective function coefficients
-    c: List[float] = [-x for x in objective_coeffs] if maximize else objective_coeffs
-
-    # Variable bounds (assuming non-negative variables)
-    bounds: List[Tuple[float, float]] = [
-        (0, None)
-    ] * num_variables  # Variables are non-negative by default
-
-    # Solve using scipy's linprog method
-    result = linprog(c, A_ub=a, b_ub=b, bounds=bounds, method="highs")
-
-    # Check the result and return the outcome
     if result.success:
         return {
             "status": "success",
@@ -113,14 +70,15 @@ def calculate_tokens(claw: ClawMachineData) -> int:
 
     # Perfom simplex algorithm to minimize tokens by button presses
     res = simplex_algorithm(
-        2,  # Two variables
         [3, 1],  # Price for each button press
-        False,  # Minimize
         [
             # Constraints for the problem
-            [[claw.button_a[0], claw.button_b[0]], "=", claw.prize_loc[0]],
-            [[claw.button_a[1], claw.button_b[1]], "=", claw.prize_loc[1]],
+            [claw.button_a[0], claw.button_b[0]],
+            [claw.button_a[1], claw.button_b[1]],
         ],
+        [claw.prize_loc[0], claw.prize_loc[1]],
+        [(0, None), (0, None)],  # Positive bounds
+        maximize=False,
     )
     if res["status"] == "failure":
         return 0
