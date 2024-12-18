@@ -28,3 +28,6 @@ Also check out this cool [auto solver](Solver/aoc_solver.py) I made using a Chat
 - [Day 11: Plutonian Pebbles](AoC_2024/day_11/README.md)
 - [Day 12: Garden Groups](AoC_2024/day_12/README.md)
 - [Day 13: Claw Contraption](AoC_2024/day_13/README.md)
+- [Day 14: Restroom Redoubt](AoC_2024/day_14/README.md)
+- [Day 15: Warehouse Woes](AoC_2024/day_15/README.md)
+- [Day 16: Reindeer Maze](AoC_2024/day_16/README.md)

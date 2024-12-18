@@ -3,9 +3,9 @@ from aoc_scraper import AdventOfCodeScraper
 
 YEAR = 2024
 
-DAY = 9
+DAY = 14
 
-PART = 2
+PART = 1
 
 # Advent of Code Cookie header value, required
 with open('cookie.txt', "r", encoding='utf-8') as fp:
