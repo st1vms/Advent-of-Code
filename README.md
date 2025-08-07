@@ -15,7 +15,7 @@ Also check out this cool [auto solver](Solver/aoc_solver.py) I made using a Chat
 
 ## Day list (AoC 2024)
 
-- [Day 1: Historian Hysteria](AoC_2024/day_1/README.md)
+- [Day 1: Historian Hysteria](AoC_2024/day_1/)
 - [Day 2: Red-Nosed Reports](AoC_2024/day_2/README.md)
 - [Day 3: Mull It Over](AoC_2024/day_3/README.md)
 - [Day 4: Ceres Search](AoC_2024/day_4/README.md)
