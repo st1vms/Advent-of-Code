@@ -15,13 +15,14 @@ with open('cookie.txt', "r", encoding='utf-8') as fp:
 # Use None for default account
 PROFILE_PATH = r""
 
-# Do not change this
+# AI prompt to retrieve the solution as a python script
 PROMPT = """
 
 Please provide the full Python script to solve this puzzle,
 having an input file called input.txt as puzzle input.
 Please answer with only the Python script.
-Please make sure your python script begins with a comment and ends with a comment
+Please make sure your python script begins with an empty comment (just a #),
+and ends with an empty comment.
 """
 
 
